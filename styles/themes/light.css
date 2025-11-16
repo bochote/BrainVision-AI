@@ -1,0 +1,18 @@
+/* Light Theme Variables */
+:root {
+    --primary-color: #2563eb;
+    --primary-light: #3b82f6;
+    --secondary-color: #7c3aed;
+    --background-color: #ffffff;
+    --surface-color: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+}
+
+body.light-theme {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+}

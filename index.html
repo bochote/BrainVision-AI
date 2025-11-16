@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>BrainVision AI - Brain Tumor Detection</title>
+        <link rel="icon" type="image/svg+xml" href="assets/brain-icon.svg">
+
+        <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/main.css">
+
+        <!-- Chart -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body class="light-theme">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/brain-icon.svg" alt="Brain Icon" class="navbar-icon">
+                    <span class="brand-text">
+                        <span class="persian">برین‌ویژن AI</span>
+                        <span class="english" style="display:none;">BrainVision AI</span>
+                    </span>
+                </a>
+
+                <div class="navbar-controls">
+                    <button class="btn btn-sm btn-language" id="langToggle">
+                        <i class="fas fa-language"></i>
+                        <span class="persian">EN</span>
+                        <span class="english" style="display:none;">FA</span>
+                    </button>
+
+                    <button class="btn btn-sm btn-theme" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                        <span class="persian">تاریک</span>
+                        <span class="english" style="display:none;">Dark</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main -->
+        <main class="main-content" style="padding-top: 90px;">
+            <div class="container">
+
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="row">
+
+                        <!-- Hero Text -->
+                        <div class="col-lg-6 hero-text mt-3">
+                            <h1 class="hero-title">
+                                <span class="persian">
+                                    <img src="assets/brain-icon.svg" class="hero-icon">
+                                    <span class="text">برین‌ویژن AI</span>
+                                </span>
+                                <span class="english" style="display:none;">
+                                    <img src="assets/brain-icon.svg" class="hero-icon">
+                                    <span class="text">BrainVision AI</span>
+                                </span>
+                            </h1>
+
+                            <p class="hero-subtitle">
+                                <span class="persian">تشخیص سریع و دقیق تومور مغزی</span>
+                                <span class="english" style="display:none;">Fast & Accurate Brain Tumor Detection</span>
+                            </p>
+
+                            <p class="hero-description">
+                                <span class="persian">
+                                    تحلیل خودکار MRI با هوش مصنوعی و ارائه نتیجه قابل‌فهم در چند ثانیه.
+                                </span>
+                                <span class="english" style="display:none;">
+                                    AI-powered MRI analysis with clear results in seconds.
+                                </span>
+                            </p>
+                        </div>
+
+                        <!-- Upload Box -->
+                        <div class="col-lg-6">
+                            <div class="upload-card card">
+                                <div class="card-header">
+                                    <h5>
+                                        <i class="fas fa-cloud-upload-alt me-2"></i>
+                                        <span class="persian">آپلود و آنالیز تصویر</span>
+                                        <span class="english" style="display:none;">Upload & Analyze Image</span>
+                                    </h5>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <!-- Drop Zone -->
+                                    <div id="dropZone" class="drop-zone" 
+                                        style="cursor:pointer; border:2px dashed #ddd; padding:24px; text-align:center;">
+                                        
+                                        <div class="drop-content">
+                                            <i class="fas fa-file-medical drop-icon fa-3x"></i>
+
+                                            <p class="drop-text mt-2">
+                                                <span class="persian">تصویر MRI خود را اینجا رها کنید</span>
+                                                <span class="english" style="display:none;">Drop your MRI image here</span>
+                                            </p>
+
+                                            <small class="text-muted">PNG, JPG, JPEG • Max 5MB</small>
+                                        </div>
+
+                                        <input type="file" id="fileInput" accept="image/*" class="d-none">
+                                    </div>
+
+                                    <!-- Image Preview -->
+                                    <div class="image-preview mt-3" id="imagePreview" style="display:none;"></div>
+
+                                    <!-- Progress -->
+                                    <div class="upload-progress mt-3" id="uploadProgress" style="display:none;">
+                                        <div class="progress-bar" style="height:12px; background:#f1f1f1; border-radius:6px; overflow:hidden;">
+                                            <div class="progress-fill" id="progressFill"
+                                                style="height:100%; width:0%; background:#4caf50;">
+                                            </div>
+                                        </div>
+
+                                        <div class="progress-text mt-2">
+                                            <span class="persian">در حال پردازش...</span>
+                                            <span class="english" style="display:none;">Processing...</span>
+                                            <span id="progressPercent">0%</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="resultsSection" class="results-section mt-4" style="display:none;">
+                    <div class="results-card card">
+
+                        <div class="card-header">
+                            <h5>
+                                <i class="fas fa-chart-bar me-2"></i>
+                                <span class="persian">نتایج تشخیص</span>
+                                <span class="english" style="display:none;">Analysis Results</span>
+                            </h5>
+                        </div>
+
+                        <div id="resultsContent" class="card-body"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer mt-5">
+            <div class="container">
+                <div class="footer-content d-flex justify-content-between align-items-center">
+
+                    <p class="footer-text mb-0">
+                        <span class="persian"> توسعه داده شده توسط </span>
+                        <span class="english" style="display:none;">Developed by</span>
+                        <a href="https://github.com/AliJ-Official" target="_blank" class="developer-link">
+                            Ali Jalaliyan
+                        </a>
+                    </p>
+
+                    <a href="https://github.com/AliJ-Official/brainvision-ai" target="_blank" class="footer-link">
+                        <i class="fab fa-github me-1"></i>
+                        <span class="persian"> مشاهده در گیت‌هاب </span>
+                        <span class="english" style="display:none;">View on GitHub</span>
+                    </a>
+
+                </div>
+            </div>
+        </footer>
+        
+        <div id="modelGlobalLoader">
+            <div class="loader-box">
+                <div class="loader-spinner"></div>
+                <p>Loading AI Model…</p>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+        <script type="module" src="scripts/model-loader.js"></script>
+        <script type="module" src="scripts/language-switcher.js"></script>
+        <script type="module" src="scripts/theme-switcher.js"></script>
+        <script type="module" src="scripts/app.js"></script>
+
+    </body>
+</html>
