@@ -1,7 +1,7 @@
 class ThemeSwitcher {
     constructor() {
         // Load saved theme or fallback to light
-        this.currentTheme = localStorage.getItem("brainvision-theme") || "light";
+        this.currentTheme = localStorage.getItem("brainvision-theme") || "dark";
         this.toggleBtn = document.getElementById("themeToggle");
 
         this.init();
@@ -43,3 +43,4 @@ class ThemeSwitcher {
 document.addEventListener("DOMContentLoaded", () => {
     new ThemeSwitcher();
 });
+
