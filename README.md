@@ -103,7 +103,7 @@ Runs entirely on CPU inside the browser.
 # Dataset
 
 Kaggle MRI Dataset:  
-https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
+- https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
 
 # License
 BrainVision is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
