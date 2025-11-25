@@ -1,10 +1,9 @@
-
 <p align="center">
   <img src="assets/brain-icon.svg" width="120" />
 </p>
 
 <p align="center">
-    <a href="https://alij-official.github.io/BrainVision-AI/" target="_blank">Open BrainVision Website</a>
+    <a href="https://alij-official.github.io/BrainVision-AI/">Open BrainVision Website</a>
 </p>
 
 # BrainVision AI
